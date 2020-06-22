@@ -16,7 +16,11 @@ public class AEProductPage extends AbstractPage{
 		return quantityAvailableSpan;
 	}
 	
-	//To get the text of the quantity available
+	/**
+	* To get the text of the quantity available
+	* 
+	* @return				The text of the quantity available
+	*/
 	public String getQuantityAvailableText() {
 		return quantityAvailableSpan.getText();
 	}

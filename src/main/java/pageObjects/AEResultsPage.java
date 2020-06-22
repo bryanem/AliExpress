@@ -22,14 +22,25 @@ public class AEResultsPage extends AbstractPage{
 		return goToPageButton;
 	}
 	
-	//To go to an specific results page
+	/**
+	* To go to an specific results page
+	* 
+	* @param pageNumber		number of the result page to go
+	* @return				AEResultsPage element, to be able to concatenate actions
+	*/
 	public AEResultsPage goToPage(int pageNumber){
+		super.goToBottom();
 		goToPageField.sendKeys(Integer.toString(pageNumber));
 		goToPageButton.click();
 		return this;
 	}
 	
-	//To click on a search result by its position on the page
+	/**
+	* To click on a search result by its position on the page
+	* 
+	* @param position		of the result to click
+	* @return				AEResultsPage element, to be able to concatenate actions
+	*/
 	public AEResultsPage clickResult(int position){
 		driver.findElement(By.cssSelector("ul.list-items > li:nth-child("+position+")  a.item-title")).click();
 		return this;
