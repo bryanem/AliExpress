@@ -2,6 +2,7 @@ package pageStepsDefinitions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.WebDriver;
+import pageObjects.AEResultsPage;
 import pageObjects.AliExpressPage;
 
 public class AliExpressPageStepsDefinitions extends AbstractPageStepsDefinitions {
@@ -13,14 +14,13 @@ public class AliExpressPageStepsDefinitions extends AbstractPageStepsDefinitions
 	public void i_am_on_AliExpress() {
 		driver.navigate().to(properties.home);
 		driver.manage().window().maximize();
-		aliExpressPage.waitForFullyLoadedPage(8);
-		AliExpressPage.closePopUp();
+		aliExpressPage.closePopUp(AliExpressPage.closePopupLocator);
 	}
 	
 	//To search for something
 	@When("^I do a search for \"([^\"]*)\"$")
 	public void i_do_a_search_for(String searchText) {
-		aliExpressPage.search(searchText);
-		AliExpressPage.closePopUp();
+		aliExpressPage.search(searchText)
+					  .closePopUp(AEResultsPage.closePopupLocator);
 	}
 }
