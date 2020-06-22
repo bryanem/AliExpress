@@ -13,11 +13,14 @@ public class AliExpressPageStepsDefinitions extends AbstractPageStepsDefinitions
 	public void i_am_on_AliExpress() {
 		driver.navigate().to(properties.home);
 		wait(5);
+		aliExpressPage.closePopUp();
 	}
 	
 	//To search for something
 	@When("^I do a search for \"([^\"]*)\"$")
 	public void i_do_a_search_for(String searchText) {
 		aliExpressPage.search(searchText);
+		wait(5);
+		aliExpressPage.closePopUp();
 	}
 }

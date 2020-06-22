@@ -5,7 +5,6 @@ import org.openqa.selenium.support.FindBy;
 
 //Definition of the basic objects and methods on the AliExpress page
 public class AEProductPage extends AbstractPage{
-
 	@FindBy(css="div.product-quantity-tip  > span") private WebElement quantityAvailableSpan;
 	
 	public AEProductPage(WebDriver driver) {

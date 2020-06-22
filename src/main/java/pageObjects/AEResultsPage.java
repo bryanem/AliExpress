@@ -6,7 +6,6 @@ import org.openqa.selenium.support.FindBy;
 
 //Definition of the basic objects and methods on the AliExpress page
 public class AEResultsPage extends AbstractPage{
-	
 	@FindBy(css="span.next-input.next-large > input") private WebElement goToPageField;
 	@FindBy(css="span.jump-btn") private WebElement goToPageButton;
 
@@ -30,6 +29,7 @@ public class AEResultsPage extends AbstractPage{
 	*/
 	public AEResultsPage goToPage(int pageNumber){
 		super.goToBottom();
+		super.js.executeScript("arguments[0].scrollIntoView(false);", goToPageButton);
 		goToPageField.sendKeys(Integer.toString(pageNumber));
 		goToPageButton.click();
 		return this;
