@@ -1,16 +1,20 @@
 package pageObjects;
+import java.util.List;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import pageStepsDefinitions.AbstractPageStepsDefinitions;
+
 //Definition of the basic objects and methods on the AliExpress page
 public class AEResultsPage extends AbstractPage{
 	@FindBy(css="span.next-input.next-large > input") private WebElement goToPageField;
 	@FindBy(css="span.jump-btn") private WebElement goToPageButton;
-	@FindBy(css="div.next-breadcrumb") private WebElement breadcrumb;
 	private String paginationLocator="div.list-pagination";
+	private String firstResultLocator="ul.list-items > li:nth-child(1)";
 	public static String closePopupLocator="a.next-dialog-close";
 
 	public AEResultsPage(WebDriver driver) {
@@ -25,10 +29,6 @@ public class AEResultsPage extends AbstractPage{
 		return goToPageButton;
 	}
 	
-	public WebElement getBreadcrumb() {
-		return breadcrumb;
-	}
-	
 	/**
 	* To go to an specific results page
 	* 
@@ -36,6 +36,9 @@ public class AEResultsPage extends AbstractPage{
 	* @return				AEResultsPage element, to be able to concatenate actions
 	*/
 	public AEResultsPage goToPage(int pageNumber){
+		if(driver.findElements(By.cssSelector(firstResultLocator)).isEmpty()) {
+			Assert.fail("No results found");
+		}
 		super.goToBottom();
 		super.js.executeScript("arguments[0].scrollIntoView(false);", driver.findElement(By.cssSelector(paginationLocator)));
 		waitForVisibility(goToPageField, 2);
@@ -52,9 +55,18 @@ public class AEResultsPage extends AbstractPage{
 	* @return				AEResultsPage element, to be able to concatenate actions
 	*/
 	public AEResultsPage clickResult(int position){
-		WebElement result = driver.findElement(By.cssSelector("ul.list-items > li:nth-child("+position+")  a.item-title"));
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(false);", result);
-		result.click();
+		List<WebElement> firsts = driver.findElements(By.cssSelector(firstResultLocator));
+		if(firsts.isEmpty()) {
+			Assert.fail("No results found");
+		}
+		int liHeight = firsts.get(0).getRect().height;
+		((JavascriptExecutor) driver).executeScript("window.scrollBy(0,"+(liHeight*1.05*(position-1))+")");
+		AbstractPageStepsDefinitions.wait(1);
+		List<WebElement> inPositions = driver.findElements(By.cssSelector("ul.list-items > li:nth-child("+position+")  a.item-title"));
+		if(inPositions.isEmpty()) {
+			Assert.fail("No result at that position");
+		}
+		inPositions.get(0).click();
 		return this;
 	}
 }

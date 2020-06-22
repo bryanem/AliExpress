@@ -31,7 +31,7 @@ formatter.step({
 });
 formatter.step({
   "line": 7,
-  "name": "I click on the 2º ad",
+  "name": "I click on the 60º ad",
   "keyword": "And "
 });
 formatter.step({
@@ -43,7 +43,7 @@ formatter.match({
   "location": "AliExpressPageStepsDefinitions.i_am_on_AliExpress()"
 });
 formatter.result({
-  "duration": 14435026000,
+  "duration": 15375809400,
   "status": "passed"
 });
 formatter.match({
@@ -56,7 +56,7 @@ formatter.match({
   "location": "AliExpressPageStepsDefinitions.i_do_a_search_for(String)"
 });
 formatter.result({
-  "duration": 4769486700,
+  "duration": 4928538300,
   "status": "passed"
 });
 formatter.match({
@@ -69,20 +69,20 @@ formatter.match({
   "location": "AEResultsPageStepsDefinitions.i_go_to_the_page_of_the_results(int)"
 });
 formatter.result({
-  "duration": 3361058600,
+  "duration": 3508802000,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "2",
+      "val": "60",
       "offset": 15
     }
   ],
   "location": "AEResultsPageStepsDefinitions.i_click_on_the_º_ad(int)"
 });
 formatter.result({
-  "duration": 1646383300,
+  "duration": 4755424200,
   "status": "passed"
 });
 formatter.match({
@@ -95,7 +95,7 @@ formatter.match({
   "location": "AEProductPageStepsDefinitions.i_see_or_more_pieces_available(int)"
 });
 formatter.result({
-  "duration": 1637536400,
+  "duration": 1015690400,
   "status": "passed"
 });
 });

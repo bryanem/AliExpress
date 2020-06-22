@@ -22,12 +22,13 @@ public abstract class AbstractPage {
 	
 	/**
 	* Closes a popup if it appears
-	* 
+	*  
 	* @param closeCSSLocator	CSS Locator for the closing button
+	* @param timeToWait			Maximum time to wait for it to appear
 	* @return					void
 	*/
-	public void closePopUp(String closeCSSLocator){
-		WebDriverWait waits = new WebDriverWait(driver, Duration.ofSeconds(1));
+	public void closePopUp(String closeCSSLocator, long timeToWait){
+		WebDriverWait waits = new WebDriverWait(driver, Duration.ofSeconds(timeToWait));
 		try {
 			waits.until(ExpectedConditions.elementToBeClickable(By.cssSelector(closeCSSLocator))).click();
 		} catch (TimeoutException e) {

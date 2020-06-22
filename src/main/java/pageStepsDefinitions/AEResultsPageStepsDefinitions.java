@@ -11,7 +11,7 @@ public class AEResultsPageStepsDefinitions extends AbstractPageStepsDefinitions 
 	@When("^I go to the page (\\d+) of the results$")
 	public void i_go_to_the_page_of_the_results(int pageNumber) {
 		aEResultsPage.goToPage(pageNumber);
-		aEResultsPage.closePopUp(AEResultsPage.closePopupLocator);
+		aEResultsPage.closePopUp(AEResultsPage.closePopupLocator,(long) 1.5);
 	}
 	
 	//To click on a result by its position
@@ -20,6 +20,6 @@ public class AEResultsPageStepsDefinitions extends AbstractPageStepsDefinitions 
 		aEResultsPage.clickResult(position);
 		aEResultsPage.waitForTabsOpened(2, 5);
 		aEResultsPage.switchToTab(1);
-		aEResultsPage.closePopUp(AEResultsPage.closePopupLocator);
+		aEResultsPage.closePopUp(AEResultsPage.closePopupLocator,(long) 4);
 	}
 }
