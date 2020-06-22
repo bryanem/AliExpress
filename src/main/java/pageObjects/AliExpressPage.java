@@ -22,8 +22,9 @@ public class AliExpressPage extends AbstractPage{
 	}
 	
 	//To search for something on AliExpress
-	public void search(String searchText){
+	public AliExpressPage search(String searchText){
 		searchField.sendKeys(searchText);
 		searchButton.click();
+		return this;
 	}
 }

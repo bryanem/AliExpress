@@ -23,13 +23,15 @@ public class AEResultsPage extends AbstractPage{
 	}
 	
 	//To go to an specific results page
-	public void goToPage(int pageNumber){
+	public AEResultsPage goToPage(int pageNumber){
 		goToPageField.sendKeys(Integer.toString(pageNumber));
 		goToPageButton.click();
+		return this;
 	}
 	
 	//To click on a search result by its position on the page
-	public void clickResult(int position){
+	public AEResultsPage clickResult(int position){
 		driver.findElement(By.cssSelector("ul.list-items > li:nth-child("+position+")  a.item-title")).click();
+		return this;
 	}
 }
