@@ -12,15 +12,15 @@ public class AliExpressPageStepsDefinitions extends AbstractPageStepsDefinitions
 	@Given("^I am on AliExpress$")
 	public void i_am_on_AliExpress() {
 		driver.navigate().to(properties.home);
-		wait(5);
-		aliExpressPage.closePopUp();
+		driver.manage().window().maximize();
+		aliExpressPage.waitForFullyLoadedPage(8);
+		AliExpressPage.closePopUp();
 	}
 	
 	//To search for something
 	@When("^I do a search for \"([^\"]*)\"$")
 	public void i_do_a_search_for(String searchText) {
 		aliExpressPage.search(searchText);
-		wait(5);
-		aliExpressPage.closePopUp();
+		AliExpressPage.closePopUp();
 	}
 }

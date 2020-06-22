@@ -29,7 +29,7 @@ public abstract class AbstractPageStepsDefinitions {
 	}
 	
 	//To wait seconds
-	protected void wait(int seconds) {
+	public static void wait(int seconds) {
 		try {
 			Thread.sleep(seconds*1000);
 		} catch (InterruptedException e) {

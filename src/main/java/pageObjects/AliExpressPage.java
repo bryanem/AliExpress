@@ -1,12 +1,16 @@
 package pageObjects;
+import java.time.Duration;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 //Definition of the basic objects and methods on the AliExpress page
 public class AliExpressPage extends AbstractPage{
-	private final String closePopupLocator="a.next-dialog-close";
+	private static final String closePopupLocator="a.next-dialog-close";
 	@FindBy(css=closePopupLocator) private WebElement closePopup;
 	@FindBy(id="search-key") private WebElement searchField;
 	@FindBy(css="input.search-button") private WebElement searchButton;
@@ -28,15 +32,16 @@ public class AliExpressPage extends AbstractPage{
 	}
 	
 	/**
-	* Closes a popup if appears
+	* Closes a popup if it appears
 	* 
-	* @return				AEResultsPage element, to be able to concatenate actions
+	* @return				void
 	*/
-	public AliExpressPage closePopUp(){
-		if(!driver.findElements(By.cssSelector(closePopupLocator)).isEmpty()) {
-			closePopup.click();
+	public static void closePopUp(){
+		WebDriverWait waits = new WebDriverWait(driver, Duration.ofSeconds(2));
+		try {
+			waits.until(ExpectedConditions.elementToBeClickable(By.cssSelector(closePopupLocator))).click();
+		} catch (TimeoutException e) {
 		}
-		return this;
 	}
 	
 	/**
@@ -48,6 +53,7 @@ public class AliExpressPage extends AbstractPage{
 	public AliExpressPage search(String searchText){
 		searchField.sendKeys(searchText);
 		searchButton.click();
+		waitForFullyLoadedPage(8);
 		return this;
 	}
 }

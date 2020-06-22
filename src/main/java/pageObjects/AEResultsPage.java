@@ -3,11 +3,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pageStepsDefinitions.AbstractPageStepsDefinitions;
 
 //Definition of the basic objects and methods on the AliExpress page
 public class AEResultsPage extends AbstractPage{
 	@FindBy(css="span.next-input.next-large > input") private WebElement goToPageField;
 	@FindBy(css="span.jump-btn") private WebElement goToPageButton;
+	@FindBy(css="div.next-breadcrumb") private WebElement breadcrumb;
 
 	public AEResultsPage(WebDriver driver) {
 		super(driver);
@@ -21,6 +23,10 @@ public class AEResultsPage extends AbstractPage{
 		return goToPageButton;
 	}
 	
+	public WebElement getBreadcrumb() {
+		return breadcrumb;
+	}
+	
 	/**
 	* To go to an specific results page
 	* 
@@ -29,9 +35,11 @@ public class AEResultsPage extends AbstractPage{
 	*/
 	public AEResultsPage goToPage(int pageNumber){
 		super.goToBottom();
-		super.js.executeScript("arguments[0].scrollIntoView(false);", goToPageButton);
+		super.js.executeScript("window.scrollBy(0,-450)");//("arguments[0].scrollIntoView(false);", goToPageButton);
+		AbstractPageStepsDefinitions.wait(1);
 		goToPageField.sendKeys(Integer.toString(pageNumber));
 		goToPageButton.click();
+		AbstractPageStepsDefinitions.wait(2);
 		return this;
 	}
 	
