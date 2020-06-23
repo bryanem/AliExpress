@@ -1,6 +1,7 @@
 package pageStepsDefinitions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import util.PropertiesManager;
@@ -22,7 +23,12 @@ public abstract class AbstractPageStepsDefinitions {
 				driver = new EdgeDriver();
 			} else {
 				System.setProperty("webdriver.chrome.driver","chromedriver.exe");
-				driver = new ChromeDriver();
+				ChromeOptions options = new ChromeOptions();
+				if("hlchrome".equals(properties.browser)) {
+	                options.addArguments("headless");
+	                options.addArguments("window-size="+properties.headlessSize);
+				}
+				driver = new ChromeDriver(options);
 			}
 		}
 		return driver;

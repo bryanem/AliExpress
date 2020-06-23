@@ -8,6 +8,7 @@ import java.util.Properties;
 public class PropertiesManager {
 	public String home="";
 	public String browser="";
+	public String headlessSize="";
 	
 	public void generateProperties() {
 		Properties prop=new Properties();
@@ -17,6 +18,7 @@ public class PropertiesManager {
 			prop.load(input);
 			home=prop.getProperty("home").toString();
 			browser=prop.getProperty("browser").toString();
+			headlessSize=prop.getProperty("headlessSize").toString();;
 		} catch(IOException e) {
 			e.printStackTrace();
 		}

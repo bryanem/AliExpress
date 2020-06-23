@@ -43,7 +43,7 @@ formatter.match({
   "location": "AliExpressPageStepsDefinitions.i_am_on_AliExpress()"
 });
 formatter.result({
-  "duration": 13658167800,
+  "duration": 14592186900,
   "status": "passed"
 });
 formatter.match({
@@ -56,7 +56,7 @@ formatter.match({
   "location": "AliExpressPageStepsDefinitions.i_do_a_search_for(String)"
 });
 formatter.result({
-  "duration": 6057751300,
+  "duration": 5868404000,
   "status": "passed"
 });
 formatter.match({
@@ -69,7 +69,7 @@ formatter.match({
   "location": "AEResultsPageStepsDefinitions.i_go_to_the_page_of_the_results(int)"
 });
 formatter.result({
-  "duration": 3268675500,
+  "duration": 3096521300,
   "status": "passed"
 });
 formatter.match({
@@ -82,7 +82,7 @@ formatter.match({
   "location": "AEResultsPageStepsDefinitions.i_click_on_the_º_ad(int)"
 });
 formatter.result({
-  "duration": 4532223300,
+  "duration": 4294992600,
   "status": "passed"
 });
 formatter.match({
@@ -95,11 +95,11 @@ formatter.match({
   "location": "AEProductPageStepsDefinitions.i_see_or_more_pieces_available(int)"
 });
 formatter.result({
-  "duration": 331545900,
+  "duration": 560704300,
   "status": "passed"
 });
 formatter.after({
-  "duration": 78700,
+  "duration": 70600,
   "status": "passed"
 });
 });
