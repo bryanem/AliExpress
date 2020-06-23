@@ -1,23 +1,60 @@
 package pageObjects;
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.ArrayList;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public abstract class AbstractPage {
-	protected static WebDriver driver;
+	public static WebDriver driver;
 	protected JavascriptExecutor js;
 	
 	//To create a page with its defined methods and attributes
 	public AbstractPage(WebDriver driver){
 		AbstractPage.driver=driver;
 		PageFactory.initElements(driver, this);
+	}
+	
+	/**
+	* To take an screenshot
+	*  
+	* @param path				Path to save screenshot. 'src/main/screenShots/' when not specified 
+	* @param name				Name for the screenshot
+	* @return					void
+	*/
+	public static void takesScreenshot(String path, String name){
+		if(name.isEmpty()) {
+			return;
+		}
+		path=path.isEmpty()?"src/main/screenShots/":path;
+		File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		File destinationPath = new File(path+name+".png");
+		try {
+			FileUtils.copyFile(screenshot, destinationPath);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	* To take an screenshot in 'src/main/screenShots/'
+	*  
+	* @param name				Name for the screenshot
+	* @return					void
+	*/
+	public static void takesScreenshot(String name){
+		takesScreenshot("src/main/screenShots/", name);
 	}
 	
 	/**

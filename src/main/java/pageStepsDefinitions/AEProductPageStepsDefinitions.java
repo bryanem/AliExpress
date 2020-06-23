@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import pageObjects.AEProductPage;
+import pageObjects.AbstractPage;
 
 public class AEProductPageStepsDefinitions extends AbstractPageStepsDefinitions {
 	WebDriver driver=getDriver();
@@ -15,6 +16,10 @@ public class AEProductPageStepsDefinitions extends AbstractPageStepsDefinitions 
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(false);", aEProductPage.getQuantityAvailableSpan());
 		String quantityAvailableText = aEProductPage.getQuantityAvailableText();
 		int quantityAvailable = Integer.valueOf(quantityAvailableText.split(" ")[0]);
-		Assert.assertTrue("The quantity available is less than "+toBeAvailable+" because it is just "+quantityAvailable, quantityAvailable>=toBeAvailable);
+		boolean condition = quantityAvailable>=toBeAvailable;
+		if (condition) {
+			AbstractPage.takesScreenshot("hasEnoughAvailableProducts");
+		}
+		Assert.assertTrue("The quantity available is less than "+toBeAvailable+" because it is just "+quantityAvailable, condition);
 	}
 }
