@@ -16,3 +16,14 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
           echo "$GITHUB_CONTEXT"
+      - id: update_worksheet
+        uses: jroehl/gsheet.action@v2.1.0 # you can specify '@release' to always have the latest changes
+        with:
+          spreadsheetId: 1RBDprJ4UH5fmGfIgxXxyhxOvXuJhAlMBNRXfeemtwBk
+          commands: |
+            [
+              { "command": "appendData", "args": { "data": [["A1", "A2", "A3"]] }, "worksheetTitle": "Sheet4"}
+            ]
+        env:
+          GSHEET_CLIENT_EMAIL: githubactions@error-log-393116.iam.gserviceaccount.com
+          GSHEET_PRIVATE_KEY: 115306906259157755530
