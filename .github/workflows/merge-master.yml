@@ -25,5 +25,5 @@ jobs:
               { "command": "appendData", "args": { "data": [["A1", "A2", "A3"]], "worksheetTitle": "Sheet4"}}
             ]
         env:
-          GSHEET_CLIENT_EMAIL: githubactions@error-log-393116.iam.gserviceaccount.com
-          GSHEET_PRIVATE_KEY: 115306906259157755530
+          GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
+          GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
