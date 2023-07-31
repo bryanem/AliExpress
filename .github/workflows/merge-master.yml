@@ -22,7 +22,7 @@ jobs:
           spreadsheetId: 1siX2TNQ6FurgW60yKL0av1mONZi1eVYhb6oeuAWHdrc
           commands: |
             [
-              { "command": "appendData", "args": { "data": [["A1", "A2", "A3"]], "worksheetTitle": "Sheet4"}}
+              { "command": "appendData", "args": { "data": [["A1", "A2", "A3"]], "worksheetTitle": "Sheet4", minCol: 2}}
             ]
         env:
           GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
