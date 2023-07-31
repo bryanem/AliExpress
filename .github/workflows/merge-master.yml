@@ -19,7 +19,7 @@ jobs:
       - id: update_worksheet
         uses: jroehl/gsheet.action@v2.1.0 # you can specify '@release' to always have the latest changes
         with:
-          spreadsheetId: 1RBDprJ4UH5fmGfIgxXxyhxOvXuJhAlMBNRXfeemtwBk
+          spreadsheetId: 1siX2TNQ6FurgW60yKL0av1mONZi1eVYhb6oeuAWHdrc
           commands: |
             [
               { "command": "appendData", "args": { "data": [["A1", "A2", "A3"]], "worksheetTitle": "Sheet4"}}
