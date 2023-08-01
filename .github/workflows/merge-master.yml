@@ -30,6 +30,9 @@ jobs:
         run: |
           echo "::error get_errors::Errors file was empty"
           exit 1
+      - name: print to see
+        run: |
+          echo "${{ steps.get_errors.outputs.errors }}"
       - id: update_worksheet
         uses: jroehl/gsheet.action@release
         with:
