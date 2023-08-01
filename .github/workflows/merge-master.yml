@@ -32,7 +32,7 @@ jobs:
           exit 1
       - name: print to see
         run: |
-          echo "${{ steps.get_errors.outputs.errors }}"
+          echo "${{ fromJson(steps.get_errors.outputs.errors) }}"
       - id: update_worksheet
         uses: jroehl/gsheet.action@release
         with:
