@@ -17,7 +17,7 @@ jobs:
         run: |
           echo "$GITHUB_CONTEXT"
       - id: update_worksheet
-        uses: jroehl/gsheet.action@v2.1.0 # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: 1siX2TNQ6FurgW60yKL0av1mONZi1eVYhb6oeuAWHdrc
           commands: |
