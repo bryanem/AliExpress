@@ -16,8 +16,16 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
           echo "$GITHUB_CONTEXT"
+      - name: Read errors file
+        id: get_errors
+        run: echo "errors=$(cat .github/workflows/run1.txt)" >> $GITHUB_OUTPUT
+      - name: Set error message and exit if errors file was somehow empty
+        if: steps.get_errors.outputs.errors == ''
+        run: |
+          echo "::error get_errors::Errors file was empty"
+          exit 1
       - id: update_worksheet
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@release
         with:
           spreadsheetId: 1siX2TNQ6FurgW60yKL0av1mONZi1eVYhb6oeuAWHdrc
           commands: |
@@ -26,19 +34,7 @@ jobs:
                 "command": "appendData",
                 "args": { 
                   "data": [
-                    [
-                      "AssertionError: Timed out retrying after 35000ms: Expected to find element: `[data-test=journeyTodso]`, but never found it.\n    at Context.eval (http://localhost:3000/__cypress/tests?p=integration\\ace\\assessment\\04.florida-knowledge-exam.js:144:31)",
-                      "2023-07-20T14:38:57.729Z","integration/ace/assessment/04.florida-knowledge-exam.js",
-                      "Verify Florida Knowledge Exam purchase page appears",
-                      "Florida knowledge exam purchase and test rules"
-                    ],
-                    [
-                      "AssertionError: Timed out retrying after 35000ms: Expected to find element: `[data-test=journeyTodso]`, but never found it.\n    at Context.eval (http://localhost:3000/__cypress/tests?p=integration\\ace\\assessment\\08.in-person-proctored-exam.js:156:29)",
-                      "2023-07-20T14:40:16.944Z",
-                      "integration/ace/assessment/08.in-person-proctored-exam.js",
-                      "Verify the proctor page is displayed and it is possible to go back",
-                      "In Person Proctored Exam"
-                    ]
+                    ${{ steps.get_errors.outputs.errors }}
                   ],
                   "worksheetTitle": "Sheet4",
                   "minCol": 1
