@@ -16,6 +16,8 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
           echo "$GITHUB_CONTEXT"
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Read errors file
         id: get_errors
         run: echo "errors=$(cat .github/workflows/run1.txt)" >> $GITHUB_OUTPUT
