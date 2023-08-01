@@ -39,9 +39,7 @@ jobs:
               {
                 "command": "appendData",
                 "args": { 
-                  "data": [
-                    $(cat .github/workflows/run1.txt)
-                  ],
+                  "data": ${{ steps.get_errors.outputs.errors }},
                   "worksheetTitle": "Sheet4",
                   "minCol": 1
                 }
