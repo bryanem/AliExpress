@@ -1,13 +1,15 @@
 [
   [
-    "AssertionError: Timed out retrying after 35000ms: Expected to find element: `[data-test=journeyTodso]`, but never found it.\n    at Context.eval (http://localhost:3000/__cypress/tests?p=integration\\ace\\assessment\\04.florida-knowledge-exam.js:144:31)",
+    "AssertionError: Timed out retrying after 35000ms: Expected to find element: `[data-test=journeyTodso]`, but never found it.
+     at Context.eval (http://localhost:3000/__cypress/tests?p=integration\\ace\\assessment\\04.florida-knowledge-exam.js:144:31)",
     "2023-07-20T14:38:57.729Z",
     "integration/ace/assessment/04.florida-knowledge-exam.js",
     "Verify Florida Knowledge Exam purchase page appears",
     "Florida knowledge exam purchase and test rules"
   ],
   [
-    "AssertionError: Timed out retrying after 35000ms: Expected to find element: `[data-test=journeyTodso]`, but never found it.\n    at Context.eval (http://localhost:3000/__cypress/tests?p=integration\\ace\\assessment\\08.in-person-proctored-exam.js:156:29)",
+    "AssertionError: Timed out retrying after 35000ms: Expected to find element: `[data-test=journeyTodso]`, but never found it.
+at Context.eval (http://localhost:3000/__cypress/tests?p=integration\\ace\\assessment\\08.in-person-proctored-exam.js:156:29)",
     "2023-07-20T14:40:16.944Z",
     "integration/ace/assessment/08.in-person-proctored-exam.js",
     "Verify the proctor page is displayed and it is possible to go back",
