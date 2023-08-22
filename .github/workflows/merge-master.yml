@@ -33,14 +33,14 @@ jobs:
       - id: update_worksheet
         uses: jroehl/gsheet.action@release
         with:
-          spreadsheetId: 1siX2TNQ6FurgW60yKL0av1mONZi1eVYhb6oeuAWHdrc
+          spreadsheetId: 1SJ5vzdBOUHgd1FA9fKPdhd6ykJKLjiHQ5xJFn3-c4qo
           commands: |
             [
               {
                 "command": "appendData",
                 "args": { 
                   "data": ${{ steps.get_errors.outputs.errors }},
-                  "worksheetTitle": "Sheet4",
+                  "worksheetTitle": "ErrorList",
                   "minCol": 1
                 }
               }
