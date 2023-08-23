@@ -23,7 +23,7 @@ jobs:
         run: |
           EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
           echo "errors<<$EOF" >> $GITHUB_OUTPUT
-          echo $(sed -z 's/\n/ /g;s/ $/\n/' .github/workflows/run1.txt) >> $GITHUB_OUTPUT
+          echo $(cat .github/workflows/run1.txt) >> $GITHUB_OUTPUT
           echo "$EOF" >> $GITHUB_OUTPUT
       - name: Set error message and exit if errors file was somehow empty
         if: steps.get_errors.outputs.errors == ''
@@ -39,7 +39,7 @@ jobs:
               {
                 "command": "appendData",
                 "args": { 
-                  "data": ${{ steps.get_errors.outputs.errors }},
+                  "data": ${{ toJSON(steps.get_errors.outputs.errors) }},
                   "worksheetTitle": "ErrorList",
                   "minCol": 1
                 }
