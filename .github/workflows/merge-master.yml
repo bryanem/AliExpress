@@ -39,7 +39,7 @@ jobs:
               {
                 "command": "appendData",
                 "args": { 
-                  "data": ${{ steps.get_errors.outputs.errors//'%0A'/$'\n' }},
+                  "data": ${{ steps.get_errors.outputs.errors//'%0A'/'\n' }},
                   "worksheetTitle": "ErrorList",
                   "minCol": 1
                 }
