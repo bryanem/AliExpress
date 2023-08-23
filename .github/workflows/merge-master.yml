@@ -20,11 +20,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Read errors file
         id: get_errors
-        run: |
-          EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
-          echo "errors<<$EOF" >> $GITHUB_OUTPUT
-          echo $(cat .github/workflows/run1.txt | sed "s/'%0A'/'\n'/") >> $GITHUB_OUTPUT
-          echo "$EOF" >> $GITHUB_OUTPUT
+        run: echo "errors=$(sed -z 's/\n/\\n/g;s/\\n$/\n/' .github/workflows/run1.txt)" >> $GITHUB_OUTPUT
       - name: Set error message and exit if errors file was somehow empty
         if: steps.get_errors.outputs.errors == ''
         run: |
