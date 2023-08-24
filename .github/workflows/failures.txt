@@ -1,6 +1,25 @@
 [
   [
-    "CypressError: Timed out retrying after 35000ms: `cy.wait()` timed out waiting `35000ms` for the 1st request to the route: `getProgress`. No request ever occurred.\n\nhttps://on.cypress.io/wait\n    at cypressErr (https://ace-web-stg-pr-1579-3a97d57089a4.herokuapp.com/__cypress/runner/cypress_runner.js:164472:18)\n    at Object.errByPath (https://ace-web-stg-pr-1579-3a97d57089a4.herokuapp.com/__cypress/runner/cypress_runner.js:164527:10)\n    at checkForXhr (https://ace-web-stg-pr-1579-3a97d57089a4.herokuapp.com/__cypress/runner/cypress_runner.js:151391:92)\n    at <unknown> (https://ace-web-stg-pr-1579-3a97d57089a4.herokuapp.com/__cypress/runner/cypress_runner.js:151414:28)\n    at tryCatcher (https://ace-web-stg-pr-1579-3a97d57089a4.herokuapp.com/__cypress/runner/cypress_runner.js:18744:23)\n    at Promise.attempt.Promise.try (https://ace-web-stg-pr-1579-3a97d57089a4.herokuapp.com/__cypress/runner/cypress_runner.js:16018:29)\n    at whenStable (https://ace-web-stg-pr-1579-3a97d57089a4.herokuapp.com/__cypress/runner/cypress_runner.js:156356:65)\n    at <unknown> (https://ace-web-stg-pr-1579-3a97d57089a4.herokuapp.com/__cypress/runner/cypress_runner.js:155797:14)\n    at tryCatcher (https://ace-web-stg-pr-1579-3a97d57089a4.herokuapp.com/__cypress/runner/cypress_runner.js:18744:23)\n    at Promise._settlePromiseFromHandler (https://ace-web-stg-pr-1579-3a97d57089a4.herokuapp.com/__cypress/runner/cypress_runner.js:16679:31)\n    at Promise._settlePromise (https://ace-web-stg-pr-1579-3a97d57089a4.herokuapp.com/__cypress/runner/cypress_runner.js:16736:18)\n    at Promise._settlePromise0 (https://ace-web-stg-pr-1579-3a97d57089a4.herokuapp.com/__cypress/runner/cypress_runner.js:16781:10)\n    at Promise._settlePromises (https://ace-web-stg-pr-1579-3a97d57089a4.herokuapp.com/__cypress/runner/cypress_runner.js:16861:18)\n    at Promise._fulfill (https://ace-web-stg-pr-1579-3a97d57089a4.herokuapp.com/__cypress/runner/cypress_runner.js:16805:18)\n    at <unknown> (https://ace-web-stg-pr-1579-3a97d57089a4.herokuapp.com/__cypress/runner/cypress_runner.js:18419:46)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./support/commands.js:733:6)",
+    "CypressError: Timed out retrying after 35000ms: `cy.wait()` timed out waiting `35000ms` for the 1st request to the route: `getProgress`. No request ever occurred.
+
+https://on.cypress.io/wait
+    at cypressErr (https://ace-web-stg-pr-1579-3a97d57089a4.herokuapp.com/__cypress/runner/cypress_runner.js:164472:18)
+    at Object.errByPath (https://ace-web-stg-pr-1579-3a97d57089a4.herokuapp.com/__cypress/runner/cypress_runner.js:164527:10)
+    at checkForXhr (https://ace-web-stg-pr-1579-3a97d57089a4.herokuapp.com/__cypress/runner/cypress_runner.js:151391:92)
+    at <unknown> (https://ace-web-stg-pr-1579-3a97d57089a4.herokuapp.com/__cypress/runner/cypress_runner.js:151414:28)
+    at tryCatcher (https://ace-web-stg-pr-1579-3a97d57089a4.herokuapp.com/__cypress/runner/cypress_runner.js:18744:23)
+    at Promise.attempt.Promise.try (https://ace-web-stg-pr-1579-3a97d57089a4.herokuapp.com/__cypress/runner/cypress_runner.js:16018:29)
+    at whenStable (https://ace-web-stg-pr-1579-3a97d57089a4.herokuapp.com/__cypress/runner/cypress_runner.js:156356:65)
+    at <unknown> (https://ace-web-stg-pr-1579-3a97d57089a4.herokuapp.com/__cypress/runner/cypress_runner.js:155797:14)
+    at tryCatcher (https://ace-web-stg-pr-1579-3a97d57089a4.herokuapp.com/__cypress/runner/cypress_runner.js:18744:23)
+    at Promise._settlePromiseFromHandler (https://ace-web-stg-pr-1579-3a97d57089a4.herokuapp.com/__cypress/runner/cypress_runner.js:16679:31)
+    at Promise._settlePromise (https://ace-web-stg-pr-1579-3a97d57089a4.herokuapp.com/__cypress/runner/cypress_runner.js:16736:18)
+    at Promise._settlePromise0 (https://ace-web-stg-pr-1579-3a97d57089a4.herokuapp.com/__cypress/runner/cypress_runner.js:16781:10)
+    at Promise._settlePromises (https://ace-web-stg-pr-1579-3a97d57089a4.herokuapp.com/__cypress/runner/cypress_runner.js:16861:18)
+    at Promise._fulfill (https://ace-web-stg-pr-1579-3a97d57089a4.herokuapp.com/__cypress/runner/cypress_runner.js:16805:18)
+    at <unknown> (https://ace-web-stg-pr-1579-3a97d57089a4.herokuapp.com/__cypress/runner/cypress_runner.js:18419:46)
+From Your Spec Code:
+    at Context.eval (webpack:///./support/commands.js:733:6)",
     "support/commands.js",
     "The exam can be passed and then come back to the dashboard",
     "When FLKE can be taken",
@@ -11,7 +30,8 @@
     "https://cloud.cypress.io/projects/2bcho5/runs/14479"
   ],
   [
-    "AssertionError: Timed out retrying after 35000ms: Expected to find element: `[data-test=currentIcon]`, but never found it.\n    at Context.eval (webpack:///./integration/flvs/major/assessment/04.florida-knowledge-exam.js:119:37)",
+    "AssertionError: Timed out retrying after 35000ms: Expected to find element: `[data-test=currentIcon]`, but never found it.
+    at Context.eval (webpack:///./integration/flvs/major/assessment/04.florida-knowledge-exam.js:119:37)",
     "integration/flvs/major/assessment/04.florida-knowledge-exam.js",
     "The exam shows as passed and can't be taken again",
     "When FLKE can be taken",
@@ -22,7 +42,8 @@
     "https://cloud.cypress.io/projects/2bcho5/runs/14479"
   ],
   [
-    "AssertionError: Timed out retrying after 35000ms: Expected to find element: `[data-test=levelCardTitle]`, but never found it.\n    at Context.eval (webpack:///./integration/flvs/major/assessment/04.florida-knowledge-exam.js:115:33)",
+    "AssertionError: Timed out retrying after 35000ms: Expected to find element: `[data-test=levelCardTitle]`, but never found it.
+    at Context.eval (webpack:///./integration/flvs/major/assessment/04.florida-knowledge-exam.js:115:33)",
     "integration/flvs/major/assessment/04.florida-knowledge-exam.js",
     "The exam can be passed and then come back to the dashboard",
     "When FLKE can be taken",
@@ -33,7 +54,8 @@
     "https://cloud.cypress.io/projects/2bcho5/runs/14479"
   ],
   [
-    "AssertionError: Timed out retrying after 35000ms: Expected to find element: `[data-test=currentIcon]`, but never found it.\n    at Context.eval (webpack:///./integration/flvs/major/assessment/04.florida-knowledge-exam.js:119:37)",
+    "AssertionError: Timed out retrying after 35000ms: Expected to find element: `[data-test=currentIcon]`, but never found it.
+    at Context.eval (webpack:///./integration/flvs/major/assessment/04.florida-knowledge-exam.js:119:37)",
     "integration/flvs/major/assessment/04.florida-knowledge-exam.js",
     "The exam shows as passed and can't be taken again",
     "When FLKE can be taken",
