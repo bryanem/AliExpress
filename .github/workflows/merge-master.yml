@@ -21,9 +21,10 @@ jobs:
       - name: Read errors file
         id: get_errors
         run: |
+          cat .github/workflows/run1.txt
           EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
           echo "errors<<$EOF" >> $GITHUB_OUTPUT
-          echo $(cat .github/workflows/failures.txt) >> $GITHUB_OUTPUT
+          echo $(cat .github/workflows/run1.txt) >> $GITHUB_OUTPUT
           echo "$EOF" >> $GITHUB_OUTPUT
       - name: Set error message and exit if errors file was somehow empty
         if: steps.get_errors.outputs.errors == ''
